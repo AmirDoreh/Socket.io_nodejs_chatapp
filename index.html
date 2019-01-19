@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Chat with node.js and socket.io</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+		  integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<div class="container-fluid">
+
+		<!-- Header -->
+		<div class="page-header">
+			<h2 >
+				Chat NodeJS 
+			</h2>
+		</div>
+		<!-- Header -->
+
+		<!-- Auth -->
+		<div class="row-fluid" id="nickWrap">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<form role="form" id="send-nick">
+					<div class="input-group">
+						<input type="text" class="form-control input-lg" placeholder="Name" id="nickname" aria-describedby="basic-addon2">
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-lg btn-primary">Join</button>
+						</span>
+					</div>
+				</form>
+
+				<div class="alert alert-danger alert-dismissible fade in" role="alert" id="login-error" style="display:none;">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="closeAlert"><span aria-hidden="true">&times;</span></button>
+					<strong>Alerta!</strong> Este nombre de usuario ya existe. Intente nuevamente.
+				</div>
+			</div>
+		</div>
+		<!-- Auth -->
+
+		<!-- Chat -->
+		<div class="row-fluid" id="contentWrap">
+			<div class="col-xs-3 col-sm-4 col-md-2">
+				<div class="panel panel-success">
+					<div class="panel-heading">Users</div>
+					<div class="panel-body">
+						<div id="users"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-9 col-sm-8 col-md-10">
+				<div class="panel panel-info">
+					<div class="panel-heading">Messages</div>
+					<div class="panel-body">
+						<div id="chat"></div>
+						<form role="form" id="send-message">
+							<div class="input-group">
+								<input type="text" class="form-control input-lg" placeholder="Message" id="message"
+									   aria-describedby="basic-addon2">
+								<span class="input-group-btn">
+									<button type="submit" class="btn btn-lg btn-primary">Enviar</button>
+								</span>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Chat -->
+
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+			integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="assets/js/init.js"></script>
+
+</body>
+</html>  
